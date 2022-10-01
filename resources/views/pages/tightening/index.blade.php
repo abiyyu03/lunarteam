@@ -41,7 +41,7 @@
                                     <td>{{$t->petugas->nama_petugas}}</td>
                                     <td>
                                         <a href="/tightening/edit/{{$t->id}}" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i> Edit</a>
-                                        <a href="/tightening/delete/{{$t->id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                        <a href="/tightening/delete/{{$t->id}}" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?');" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach

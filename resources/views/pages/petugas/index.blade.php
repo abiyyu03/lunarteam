@@ -34,7 +34,7 @@
                                     <td>{{$p->nama_petugas}}</td>
                                     <td>
                                         <a href="#" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i> Edit</a>
-                                        <a href="/petugas/delete/{{$p->id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                        <a href="/petugas/delete/{{$p->id}}" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?');" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
