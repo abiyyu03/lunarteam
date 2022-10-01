@@ -47,7 +47,7 @@
                                     <td><img src="/img/ganti_pelumas/{{$gp->gambar}}" width="240" alt=""></td>
                                     <td>
                                         <a href="/ganti_pelumas/edit/{{$gp->id}}" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i> Edit</a>
-                                        <a href="/ganti_pelumas/delete/{{$gp->id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                        <a href="/ganti_pelumas/delete/{{$gp->id}}" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?');"class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -62,4 +62,23 @@
     </div>
 
 </div>
+<script>
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+        }
+        })
+</script>
 @endsection

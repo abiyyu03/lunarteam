@@ -89,7 +89,7 @@ class GantiPelumasController extends Controller
 
         $image->move(public_path().'/img/img_temp/',$this->filename);
         $image_compressed = Image::make(public_path().'/img/img_temp/'.$this->filename);
-        $image_compressed->fit(354,472);
+        // $image_compressed->fit(354,472);
         $image_compressed->save(public_path('/img/ganti_pelumas/'.$this->filename));
         unlink(public_path('/img/img_temp/'.$this->filename));
     }
