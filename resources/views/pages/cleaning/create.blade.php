@@ -39,11 +39,11 @@
                 </div>
                 <div class="form-group">
                     <label for="gambar_sebelum">Gambar Sebelum</label>
-                    <input type="file" name="gambar_sebelum" class="form-control">
+                    <input type="file" accept="image/*" name="gambar_sebelum" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="gambar_sesudah">Gambar Sesudah</label>
-                    <input type="file" name="gambar_sesudah" class="form-control">
+                    <input type="file" accept="image/*" name="gambar_sesudah" class="form-control">
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary form-control">Simpan</button>

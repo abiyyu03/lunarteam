@@ -53,7 +53,7 @@
                 <img src="/img/ganti_pelumas/{{$gantiPelumasData->gambar}}" width="240" alt="">
                 <div class="form-group">
                     <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" class="form-control">
+                    <input type="file" accept="image/*" name="gambar" class="form-control">
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary form-control">Simpan</button>
