@@ -32,6 +32,8 @@ Route::middleware('isAuthenticated')->group(function(){
     //Petugas
     Route::get('/petugas',[App\Http\Controllers\PetugasController::class,'index']);
     Route::get('/petugas/create',[App\Http\Controllers\PetugasController::class,'create']);
+    Route::get('/petugas/edit/{id}',[App\Http\Controllers\PetugasController::class,'edit']);
+    Route::post('/petugas/update/{id}',[App\Http\Controllers\PetugasController::class,'update'])->name('petugas.update');
     Route::post('/petugas/store',[App\Http\Controllers\PetugasController::class,'store'])->name('petugas.store');
 
     //Cleaning

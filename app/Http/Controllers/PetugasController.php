@@ -27,6 +27,21 @@ class PetugasController extends Controller
         return redirect()->to('/petugas')->with('success','Data Berhasil Disimpan !');
     }
 
+    function edit($id)
+    {
+        $petugasData = Petugas::find($id);
+        return view('pages.petugas.edit',compact('petugasData'));
+    }
+
+    function update($id, Request $request)
+    {
+        $petugasData = Petugas::find($id);
+        $petugasData->nama_petugas = $request->nama_petugas;
+        $petugasData->save();
+
+        return redirect()->to('/petugas')->with('success','Data Berhasil Diubah !');
+    }
+
     function delete($id)
     {
         $petugasData = Petugas::find($id);
