@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pelumas;
+use App\Models\{Pelumas, Petugas, GantiPelumas};
 
 class PelumasController extends Controller
 {
@@ -30,10 +30,8 @@ class PelumasController extends Controller
 
     function edit($id)
     {
-        $petugasData = Petugas::get();
-        $pelumasData = Pelumas::get();
-        $gantiPelumasData = GantiPelumas::with('petugas','pelumas')->find($id);
-        return view('pages.pelumas.edit',compact('petugasData','pelumasData','gantiPelumasData'));
+        $pelumasData = Pelumas::find($id);
+        return view('pages.pelumas.edit',compact('pelumasData'));
     }
 
     function update($id, Request $request)
@@ -42,7 +40,7 @@ class PelumasController extends Controller
         $pelumasData->nama_pelumas = $request->nama_pelumas; 
         $pelumasData->save();
 
-        return redirect()->to('/pelumas')->with('success','Data Berhasil Disimpan !');
+        return redirect()->to('/pelumas')->with('success','Data Berhasil Diubah !');
     }
 
     function delete($id)
