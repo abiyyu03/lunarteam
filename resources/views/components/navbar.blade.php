@@ -5,16 +5,18 @@
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
-    
+    <span class="badge bg-success text-white p-1 px-2">
+        <p class="mb-0 h6"><i class="fas fa-calendar"></i> {{Carbon\Carbon::now()->isoFormat('dddd, D MMMM YYYY')}}</p>
+    </span>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
         
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-        <li class="nav-item dropdown no-arrow d-sm-none">
+        {{-- <li class="nav-item dropdown no-arrow d-sm-none">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-search fa-fw"></i>
-        </a>
+        </a> --}}
         <!-- Dropdown - Messages -->
             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
             aria-labelledby="searchDropdown">
