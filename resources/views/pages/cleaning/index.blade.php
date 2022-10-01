@@ -41,11 +41,11 @@
                                     <td>{{$c->equipment}}</td>
                                     <td>{{$c->pekerjaan}}</td>
                                     <td>{{$c->petugas->nama_petugas}}</td>
-                                    <td><img src="/img/cleaning/{{$c->gambar_sebelum}}" width="240" alt=""></td>
-                                    <td><img src="/img/cleaning/{{$c->gambar_sesudah}}" width="240" alt=""></td>
+                                    <td><img src="/img/cleaning/{{$c->gambar_sebelum}}" width="240" height="180" alt=""></td>
+                                    <td><img src="/img/cleaning/{{$c->gambar_sesudah}}" width="240" height="180" alt=""></td>
                                     <td>
                                         <a href="/cleaning/edit/{{$c->id}}" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i> Edit</a>
-                                        <a href="/cleaning/delete/{{$c->id}}" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                        <a href="/cleaning/delete/{{$c->id}}" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?');" class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
