@@ -32,6 +32,12 @@
             <div class="col-xl-7 col-lg-9 col-md-8">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
+                    @if ($message = Session::get('failed'))
+                        <div class="alert alert-danger">
+                            <i class="fas fa-times"></i> 
+                            {{$message}}
+                        </div>
+                    @endif
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use Alert;
 
 class AuthController extends Controller
 {
@@ -13,8 +14,6 @@ class AuthController extends Controller
             return redirect()->back();
         }
         return view('pages.auth.login');
-
-       
     }
 
     function loginProcess(Request $request)
@@ -22,9 +21,11 @@ class AuthController extends Controller
         $data = $request->only('username','password');
         // dd($data);
         if(Auth()->attempt($data)){
+            Alert::success('Sukses','Login berhasil !');
             return redirect()->to('/');
         }
-        return redirect()->back();
+        // Alert::success('Gagal','Username atau Password salah !');
+        return redirect()->back()->with('failed','Username atau Password salah !');
     }
 
     function logout()
