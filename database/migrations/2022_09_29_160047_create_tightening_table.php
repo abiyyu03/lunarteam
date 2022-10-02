@@ -16,7 +16,8 @@ class CreateTighteningTable extends Migration
         Schema::create('tightening', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->string('equipment');
+            // $table->string('equipment');
+            $table->unsignedInteger('equipment_id')->references('id')->on('equipment');
             $table->string('pekerjaan');
             $table->unsignedInteger('petugas_id')->references('id')->on('petugas');
             $table->timestamps();

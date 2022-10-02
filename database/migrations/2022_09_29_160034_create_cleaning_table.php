@@ -16,7 +16,8 @@ class CreateCleaningTable extends Migration
         Schema::create('cleaning', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->string('equipment');
+            // $table->string('equipment');
+            $table->unsignedInteger('equipment_id')->references('id')->on('equipment');
             $table->string('pekerjaan');
             $table->unsignedInteger('petugas_id')->references('id')->on('petugas');
             $table->string('gambar_sebelum');

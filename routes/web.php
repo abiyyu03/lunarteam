@@ -59,4 +59,12 @@ Route::middleware('isAuthenticated')->group(function(){
     Route::get('/pelumas/edit/{id}',[App\Http\Controllers\PelumasController::class,'edit']);
     Route::post('/pelumas/update/{id}',[App\Http\Controllers\PelumasController::class,'update'])->name('pelumas.update');
     Route::post('/pelumas/store',[App\Http\Controllers\PelumasController::class,'store'])->name('pelumas.store');
+
+    //equipment
+    Route::get('/equipment',[App\Http\Controllers\EquipmentController::class,'index']);
+    Route::get('/equipment/create',[App\Http\Controllers\EquipmentController::class,'create']);
+    Route::get('/equipment/delete/{id}',[App\Http\Controllers\EquipmentController::class,'delete']);
+    Route::get('/equipment/edit/{id}',[App\Http\Controllers\EquipmentController::class,'edit']);
+    Route::post('/equipment/update/{id}',[App\Http\Controllers\EquipmentController::class,'update'])->name('equipment.update');
+    Route::post('/equipment/store',[App\Http\Controllers\EquipmentController::class,'store'])->name('equipment.store');
 });

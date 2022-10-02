@@ -33,6 +33,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tightening</span></a>
     </li>
+    <li class="nav-item {{Request::segment(1) == 'equipment' ? 'active' : ''}}">
+        <a class="nav-link" href="/equipment">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Data Equipment</span></a>
+    </li>
     <li class="nav-item {{Request::segment(1) == 'petugas' ? 'active' : ''}}">
         <a class="nav-link" href="/petugas">
             <i class="fas fa-fw fa-users"></i>
