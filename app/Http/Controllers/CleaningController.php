@@ -51,6 +51,7 @@ class CleaningController extends Controller
         $imageBefore = $request->file('gambar_sebelum');
         $imageAfter = $request->file('gambar_sesudah');
 
+        //check if image is not NULL
         $imageIsNotEmpty = $imageBefore != NULL || $imageAfter != NULL;
 
         if($imageIsNotEmpty){
@@ -75,6 +76,8 @@ class CleaningController extends Controller
     function delete($id)
     {
         $cleaningData = Cleaning::find($id);
+
+        //check if images file are exists 
         $imageIsExist = file_exists(public_path().'/img/cleaning/'.$cleaningData->gambar_sebelum) || file_exists(public_path().'/img/cleaning/'.$cleaningData->gambar_sesudah);
         
         if($imageIsExist){
