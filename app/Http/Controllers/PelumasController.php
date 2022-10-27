@@ -9,7 +9,7 @@ class PelumasController extends Controller
 {
     function index()
     {
-        $pelumasData = Pelumas::paginate(5);
+        $pelumasData = Pelumas::get();
         return view('pages.pelumas.index',compact('pelumasData'));
     }
 

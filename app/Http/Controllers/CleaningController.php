@@ -10,7 +10,7 @@ class CleaningController extends Controller
 {
     function index()
     {
-        $cleaningData = Cleaning::with('petugas')->paginate(10);
+        $cleaningData = Cleaning::with('petugas')->get();
         return view('pages.cleaning.index',compact('cleaningData'));
     }
 

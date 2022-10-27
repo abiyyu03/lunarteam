@@ -21,8 +21,8 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <p>Total Keseluruhan Data : {{$tighteningData->total()}}</p>
-                    <table class="table-bordered table table-striped">
+                    {{-- <p>Total Keseluruhan Data : {{$tighteningData->total()}}</p> --}}
+                    <table class="table-bordered table table-striped" id="table-1">
                         <thead>
                             <th>#</th>
                             <th>Tanggal</th>
@@ -48,12 +48,19 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex justify-content-end">
+                {{-- <div class="d-flex justify-content-end">
                     {{$tighteningData->links("pagination::bootstrap-4")}}
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 
 </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready( function () {
+        $('#table-1').DataTable();
+    } );
+</script>
+@endpush

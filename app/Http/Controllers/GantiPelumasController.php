@@ -3,22 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{GantiPelumas, Petugas, Pelumas};
+use App\Models\{GantiPelumas, Petugas, Pelumas, Equipment};
 use Image;
 
 class GantiPelumasController extends Controller
 {
     function index()
     {
-        $gantiPelumasData = GantiPelumas::with('pelumas','petugas')->paginate(5);
+        $gantiPelumasData = GantiPelumas::with('pelumas','petugas','Equipment')->get();
         return view('pages.ganti_pelumas.index',compact('gantiPelumasData'));
     }
 
     function create()
     {
+        $equipmentData = Equipment::get();
         $petugasData = Petugas::get();
         $pelumasData = Pelumas::get();
-        return view('pages.ganti_pelumas.create',compact('petugasData','pelumasData'));
+        return view('pages.ganti_pelumas.create',compact('petugasData','pelumasData','equipmentData'));
     }
 
     function store(Request $request)
@@ -28,7 +29,7 @@ class GantiPelumasController extends Controller
 
         $gantiPelumasData = new GantiPelumas();
         $gantiPelumasData->tanggal = $request->tanggal;
-        $gantiPelumasData->equipment = $request->equipment;
+        $gantiPelumasData->equipment_id = $request->equipment_id;
         $gantiPelumasData->pekerjaan = $request->pekerjaan;
         $gantiPelumasData->petugas_id = $request->petugas_id; 
         $gantiPelumasData->pelumas_id = $request->pelumas_id;
@@ -42,10 +43,11 @@ class GantiPelumasController extends Controller
 
     function edit($id)
     {
+        $equipmentData = Equipment::get();
         $petugasData = Petugas::get();
         $pelumasData = Pelumas::get();
         $gantiPelumasData = GantiPelumas::with('petugas','pelumas')->find($id);
-        return view('pages.ganti_pelumas.edit',compact('petugasData','pelumasData','gantiPelumasData'));
+        return view('pages.ganti_pelumas.edit',compact('petugasData','pelumasData','gantiPelumasData','equipmentData'));
     }
 
     function update($id, Request $request)
@@ -59,7 +61,7 @@ class GantiPelumasController extends Controller
 
         $gantiPelumasData = GantiPelumas::with('petugas','pelumas')->find($id);
         $gantiPelumasData->tanggal = $request->tanggal;
-        $gantiPelumasData->equipment = $request->equipment;
+        $gantiPelumasData->equipment_id = $request->equipment_id;
         $gantiPelumasData->pekerjaan = $request->pekerjaan;
         $gantiPelumasData->petugas_id = $request->petugas_id; 
         $gantiPelumasData->pelumas_id = $request->pelumas_id;

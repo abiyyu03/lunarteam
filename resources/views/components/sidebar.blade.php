@@ -48,6 +48,11 @@
             <i class="fas fa-fw fa-tint"></i>
             <span>Data Pelumas</span></a>
     </li>
+    <li class="nav-item {{Request::segment(1) == 'plant_area' ? 'active' : ''}}">
+        <a class="nav-link" href="/plant_area">
+            <i class="fas fa-fw fa-industry"></i>
+            <span>Data Plant Area</span></a>
+    </li>
     {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">

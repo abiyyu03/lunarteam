@@ -21,8 +21,8 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <p>Total Keseluruhan Data : {{$gantiPelumasData->total()}}</p>
-                    <table class="table-bordered table table-striped">
+                    {{-- <p>Total Keseluruhan Data : {{$gantiPelumasData->total()}}</p> --}}
+                    <table class="table-bordered table table-striped" id="table-1">
                         <thead>
                             <th>#</th>
                             <th>Tanggal</th>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{Carbon\Carbon::parse($gp->tanggal)->isoFormat('dddd, D MMM YYYY')}}</td>
-                                    <td>{{$gp->equipment}}</td>
+                                    <td>{{$gp->equipment->equipment_code}}</td>
                                     <td>{{$gp->pekerjaan}}</td>
                                     <td>{{$gp->petugas->nama_petugas}}</td>
                                     <td>{{$gp->pelumas->nama_pelumas}}</td>
@@ -54,12 +54,19 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex justify-content-end">
+                {{-- <div class="d-flex justify-content-end">
                     {{$gantiPelumasData->links("pagination::bootstrap-4")}}
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 
 </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready( function () {
+        $('#table-1').DataTable();
+    } );
+</script>
+@endpush

@@ -10,4 +10,9 @@ class PlantArea extends Model
     use HasFactory;
     protected $table = "plant_area";
     protected $fillable = ['plant_area'];
+
+    function equipments()
+    {
+        return $this->hasMany('App\Models\Equipment');
+    }
 }

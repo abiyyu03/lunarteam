@@ -16,7 +16,7 @@ class CreateEquipmentTable extends Migration
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
             $table->string('equipment_code');
-            $table->string('equipment_id');
+            // $table->string('equipment_id');
             $table->text('equipment_description');
             $table->unsignedInteger('plant_area_id')->references('id')->on('plant_area');
             $table->string('sub_assets');

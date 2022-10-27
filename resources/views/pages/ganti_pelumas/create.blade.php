@@ -6,8 +6,10 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Tambah Data Ganti Pelumas</h1>
-        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
+        <a href="/ganti_pelumas" class="btn btn-danger">
+            <i class="fas fa-arrow-left"></i>
+            Kembali
+        </a>
     </div>
 
     <!-- Content Row -->
@@ -22,7 +24,13 @@
                 </div>
                 <div class="form-group">
                     <label for="equipment">Equipment</label>
-                    <input type="text" name="equipment" class="form-control" required>
+                    {{-- <input type="text" name="equipment" class="form-control" required> --}}
+                    <select name="equipment_id" class="form-control selectData">
+                        <option value="">- Pilih Equipment -</option>
+                        @foreach ($equipmentData as $e)
+                            <option value="{{$e->id}}">{{$e->equipment_code}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="pekerjaan">Pekerjaan</label>
@@ -53,6 +61,7 @@
                 <div class="form-group">
                     <label for="gambar">Gambar</label>
                     <input type="file" accept="image/*" name="gambar" class="form-control">
+                    <label for="">Ukuran Maks : 10MB</label>
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary form-control">Simpan</button>

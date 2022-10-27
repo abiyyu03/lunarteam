@@ -21,7 +21,7 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <table class="table-bordered table table-striped">
+                    <table class="table-bordered table table-striped" id="table-1">
                         <thead>
                             <th>#</th>
                             <th>Nama Petugas</th>
@@ -47,3 +47,10 @@
 
 </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready( function () {
+        $('#table-1').DataTable();
+    } );
+</script>
+@endpush

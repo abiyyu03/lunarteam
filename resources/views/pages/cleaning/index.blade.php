@@ -21,8 +21,7 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <p>Total Keseluruhan Data : {{$cleaningData->total()}}</p>
-                    <table class="table-bordered table table-striped">
+                    <table class="table-bordered table table-striped" id="table-1">
                         <thead>
                             <th>#</th>
                             <th>Tanggal</th>
@@ -51,13 +50,17 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="d-flex justify-content-end">
-                    {{$cleaningData->links("pagination::bootstrap-4")}}
-                </div>
+                </div> 
             </div>
         </div>
     </div>
 
 </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready( function () {
+        $('#table-1').DataTable();
+    } );
+</script>
+@endpush

@@ -6,6 +6,10 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Edit Data Ganti Pelumas</h1>
+        <a href="/ganti_pelumas" class="btn btn-danger">
+            <i class="fas fa-arrow-left"></i>
+            Kembali
+        </a>
         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
     </div>
@@ -22,7 +26,13 @@
                 </div>
                 <div class="form-group">
                     <label for="equipment">Equipment</label>
-                    <input type="text" name="equipment" class="form-control" value="{{$gantiPelumasData->equipment}}" required>
+                    {{-- <input type="text" name="equipment" class="form-control" required> --}}
+                    <select name="equipment_id" class="form-control">
+                        <option value="">- Pilih Equipment -</option>
+                        @foreach ($equipmentData as $e)
+                            <option value="{{$e->id}}" {{$gantiPelumasData->equipment_id === $e->id ? 'selected' : ''}}>{{$e->equipment_code}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="pekerjaan">Pekerjaan</label>

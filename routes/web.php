@@ -67,4 +67,12 @@ Route::middleware('isAuthenticated')->group(function(){
     Route::get('/equipment/edit/{id}',[App\Http\Controllers\EquipmentController::class,'edit']);
     Route::post('/equipment/update/{id}',[App\Http\Controllers\EquipmentController::class,'update'])->name('equipment.update');
     Route::post('/equipment/store',[App\Http\Controllers\EquipmentController::class,'store'])->name('equipment.store');
+
+    //plant area
+    Route::get('/plant_area',[App\Http\Controllers\PlantAreaController::class,'index']);
+    Route::get('/plant_area/create',[App\Http\Controllers\PlantAreaController::class,'create']);
+    Route::get('/plant_area/delete/{id}',[App\Http\Controllers\PlantAreaController::class,'delete']);
+    Route::get('/plant_area/edit/{id}',[App\Http\Controllers\PlantAreaController::class,'edit']);
+    Route::post('/plant_area/update/{id}',[App\Http\Controllers\PlantAreaController::class,'update'])->name('plant_area.update');
+    Route::post('/plant_area/store',[App\Http\Controllers\PlantAreaController::class,'store'])->name('plant_area.store');
 });

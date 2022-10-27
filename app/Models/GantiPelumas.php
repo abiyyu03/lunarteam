@@ -9,7 +9,7 @@ class GantiPelumas extends Model
 {
     use HasFactory;
     protected $table = "ganti_pelumas";
-    protected $fillable = ['tanggal','equipment','pekerjaan','petugas_id','pelumas_id','catatan','gambar'];
+    protected $fillable = ['tanggal','equipment_id','pekerjaan','petugas_id','pelumas_id','catatan','gambar'];
 
     function petugas()
     {
@@ -19,5 +19,10 @@ class GantiPelumas extends Model
     function pelumas()
     {
         return $this->belongsTo('App\Models\Pelumas');
+    }
+
+    function equipment()
+    {
+        return $this->belongsTo('App\Models\Equipment');
     }
 }

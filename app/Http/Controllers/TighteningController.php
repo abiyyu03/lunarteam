@@ -9,7 +9,7 @@ class TighteningController extends Controller
 {
     function index()
     {
-        $tighteningData = Tightening::with('petugas')->paginate(10);
+        $tighteningData = Tightening::with('petugas')->get();
         return view('pages.tightening.index',compact('tighteningData'));
     }
 
